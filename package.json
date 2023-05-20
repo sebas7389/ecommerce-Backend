@@ -1,0 +1,14 @@
+{
+  "name": "ecommerce-backend",
+  "version": "0.0.1",
+  "description": "Servidor ecommerce en NodeJS,Express, Mongoose, JWT, con CRUD de Users, Productos, Ordenes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Seba",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
