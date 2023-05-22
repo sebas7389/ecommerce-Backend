@@ -4,11 +4,15 @@
   "description": "Servidor ecommerce en NodeJS,Express, Mongoose, JWT, con CRUD de Users, Productos, Ordenes.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.jsNPM"
   },
   "author": "Seba",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^7.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
