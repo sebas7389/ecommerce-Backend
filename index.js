@@ -8,7 +8,7 @@ mongoose.connect(dbURL)
                     console.log(`\x1b[35m Conexion a la MONGODB satisfactoria \x1b[37m`);
 
                     app.listen(port,() => {
-                    console.log (`\x1b[36mServidor funcionando en puerto ${port} \x1b[37m`);
+                    console.log (`\x1b[36m Servidor funcionando en puerto ${port} \x1b[37m`);
 
                     })
 
