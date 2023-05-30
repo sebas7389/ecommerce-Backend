@@ -1,17 +1,21 @@
-const Product = require ('./../schemas/product.schema')
+const Product = require ('./../schemas/product.schema');
+const {responseCreator} = require ('../utils/utils');
+
 
 
 const getAllProducts = (req, res) => {
 
     Product.find().then(function(productos){
 
-        res.status(200).send({
-            msg: `Productos solicitados correctamente`,
-            productos: productos
-    });
+        return responseCreator(res,200, 'Productos obtenidos correctamente', {productos});
+    //     res.status(200).send({
+    //         msg: `Productos solicitados correctamente`,
+    //         productos: productos
+    // });
+
 
     }). catch((error) => {
-        console.log
+        console.log(error)
     })
 
 }
@@ -99,9 +103,6 @@ async function getProduct(req, res) {
             })
         }
     }
-
-
-
 
 
 async function updateProduct(req, res) {

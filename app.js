@@ -1,22 +1,22 @@
 const express = require('express');
 const app = express();
-const productRoutes = require ('./routes/product.routes')
+const productRoutes = require ('./routes/product.routes');
+const userRoutes = require('./routes/user.routes');
+const cors = require ('cors');
 
 
-//middlewares
-
-app.use(express.json());
-app.use(express.urlencoded({extended: true}))
-
-app.get ('/', (request, response) => {
-    response.send({
-        msg:`Bienvenido a mi servidor express`,
-        ok:true
-    })
-});
+//Middlewares
+app.use(express.json())
+//Evitar cors error
+app.use(cors());
 
 // Definir rutas a usar por mi app express.
-app.use(productRoutes)
+app.use ('/api',[
+
+productRoutes,
+userRoutes
+
+])
 
 
 module.exports = app
