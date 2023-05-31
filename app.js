@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const productRoutes = require ('./routes/product.routes');
 const userRoutes = require('./routes/user.routes');
+const orderRoutes = require ('./routes/order.routes')
 const cors = require ('cors');
 
 
@@ -14,7 +15,8 @@ app.use(cors());
 app.use ('/api',[
 
 productRoutes,
-userRoutes
+userRoutes,
+orderRoutes,
 
 ])
 

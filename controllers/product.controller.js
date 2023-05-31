@@ -3,11 +3,13 @@ const {responseCreator} = require ('../utils/utils');
 
 
 
-const getAllProducts = (req, res) => {
+const getAllProducts = async (req, res) => {
 
-    Product.find().then(function(productos){
+   const productos = await Product.find().then(function(productos){
 
-        return responseCreator(res,200, 'Productos obtenidos correctamente', {productos});
+    const total = productos.length
+    
+        return responseCreator(res,200, 'Productos obtenidos correctamente', {productos, total});
     //     res.status(200).send({
     //         msg: `Productos solicitados correctamente`,
     //         productos: productos
