@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Detalle del producto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  </head>
+  <body>
+    <header class="header">
+
+        
+      <nav class="navbar">
+          <button for="" class="navbar__menu-label" id="navbar-menu-btn">
+              <span class="navbar__menu-icon" id="navbar-menu-icon">
+                  <i class="fa-solid fa-bars"></i>
+              </span>
+          </button>
+          <a href="/index.html" class="navbar__nav-link">
+              <img class="navbar__logo" src="/assets/images/logo R.jpg" alt="Logo del ecommerce">
+          </a>
+          <div class="user-navbar">
+            <div class="user-navbar__cart-icon-container">
+            <a href="/pages/order/order.html">
+            <i class="fa-solid fa-cart-shopping user-navbar__cart-icon-container"></i>
+            </a>
+            <div class="user-navbar__cart-badge" 
+            id="cart-count">0</div>
+        </div> 
+            
+            <div class="user-navbar__user-avatar-container" id="user-navbar-user-avatar-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png" class="user-navbar__user-avatar" alt="Imagen de usuario">
+            </div>
+            <!-- TODO: avatar de la persona logueada o nombre -->
+     
+          <!-- Sub Menu que se deapliega al dar click en el avatar  --> 
+            
+          <ul class="user-navbar__nav-links-container" id="user-navbar-nav-links-container">
+            <li class="user-navbar__nav-item" id="user-navbar__name-user">
+                <label class="user-navbar__nav-link">Usuario:</label>
+            </li>
+            <li class="user-navbar__nav-item" id="user-navbar__admin-user">
+                <a href="/pages/adminUser/adminUser.html" class="user-navbar__nav-link">Admin Usuarios</a>
+            </li>
+            <li class="user-navbar__nav-item" id="user-navbar__admin-product">
+                <a href="/pages/adminProducts/adminProducts.html" class="user-navbar__nav-link">Admin Productos</a>
+            </li>
+         </ul> 
+    </div>
+            <!-- Sub Menu que se deapliega al dar click en el avatar  --> 
+              
+            <ul class="user-navbar__nav-links-container" id="user-navbar-nav-links-container">
+              <li class="user-navbar__nav-item" id="user-navbar__name-user">
+                  <label class="user-navbar__nav-link">Usuario:</label>
+              </li>
+              <li class="user-navbar__nav-item" id="user-navbar__admin-user">
+                <a href="/pages/adminUser/adminUser.html" class="user-navbar__nav-link">Admin Usur</a>
+            </li>
+            <li class="user-navbar__nav-item" id="user-navbar__admin-product">
+                <a href="/pages/adminProducts/adminProducts.html" class="user-navbar__nav-link">Admin Product</a>
+            </li>
+          </ul> 
+          
+        
+
+
+          <ul class="navbar__nav-links-container" id="navbar-nav-links-container">
+              <li class="navbar__nav-item">
+                  <a href="/index.html" class="navbar__nav-link">Inicio</a>
+              </li>
+              <li class="navbar__nav-item">
+                  <a href="/pages/contact/contact.html" class="navbar__nav-link">Contacto</a>
+              </li>
+              <li class="navbar__nav-item">
+                  <a href="/pages/about-us/about.html" class="navbar__nav-link">Nosotros</a>
+              </li>
+              <li class="navbar__nav-item">
+                  <a href="/pages/register/register.html" class="navbar__nav-link">Registrarse</a>
+              </li>
+              <li class="navbar__nav-item" id="sign-in">
+                <a href="/pages/login/login.html"  class="navbar__nav-link">Login</a>
+            </li>
+          </ul>
+          
+      </nav>
+
+  </header>
+    
+  <main class="main" id="main">
+    <!-- <div class = "card__detailr">
+      <div class = "card__detail">
+        <!-- card left -->
+        <!-- <div class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+              <img src = "/assets/images/imagenes de cards venta/shopping (1).webp" alt = "shoe image">
+              <img src = "/assets/images/imagenes de cards venta/shopping.webp" alt = "shoe image">
+            </div>
+          </div>
+          <div class = "img-select">
+            <div class = "img-item">
+              <a href = "#" data-id = "1">
+                <img src = "/assets/images/imagenes de cards venta/shopping (1).webp" alt = "shoe image">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "2">
+                <img src = "/assets/images/imagenes de cards venta/shopping.webp" alt = "shoe image">
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- card right -->
+        <!-- <div class = "product-content">
+          <h2 class = "product-title">MONITOR 24" ASUS VG24VQ CURVO GAMING 144HZ AUDIO</h2>
+          <a href = "#" class = "product-link">visita nuestra pagina Rsystem</a>
+          <div class = "product-rating">
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star-half-alt"></i>
+            <span>4.7(21)</span>
+          </div>
+
+          <div class = "product-price">
+            <p class = "last-price">Antes: <span>$140.000</span></p>
+            <p class = "new-price">Ahora: <span>$131.784</span></p>
+          </div>
+
+          <div class = "product-detail">
+            <p> - Monitor Curvo Gamer TUF Gaming VG24VQ
+              - 23.6 pulgadas Full HD (1920 x 1080), 144Hz
+              - Extreme Low Motion Blur™, FreeSync™, 1ms (MPRT)
+              - Monitor de juegos 1500R Full HD de 23.6 pulgadas</p>
+            <ul>
+              <li>Disponible: <span>En stock</span></li>
+              <li>Envio: <span>Gratis</span></li>
+            </ul>
+          </div>
+
+          <div class = "purchase-info">
+            <h2>Cantidad</h2>
+            <div class="product-quantity-container__increase quantity-product">
+              <button class="quantity-product__btn" onclick="decreaseInput()">
+                  -
+              </button>
+              <input type="number" class="quantity-product__input" id="quantityInput" value=1>
+              <button class="quantity-product__btn" onclick="increaseInput()">
+                  +
+              </button>
+          </div>
+            <input type = "number" min = "0" value = "1">
+            <button class = "btn" onclick="addCart()">
+              Añadir al carrito <i class = "fas fa-shopping-cart"></i>
+            </button>
+            <button class = "btn" onclick="btnComprar()">Comprar</button>
+          </div> -->
+        <!-- </div> -->
+      <!-- </div> --> -->
+    <!-- </div> --> -->
+</main>
+    
+
+<footer class="footer">
+  <div class="footer__column">
+      <ul class="footer__contact-container">
+          <li class="footer__contact-item"> 
+              <a href="https://www.facebook.com/" class="footer__contact-link">
+                  <i class="fa-brands fa-facebook footer__contact-icon footer__contact-icon--facebook"></i>
+                  Facebook
+              </a>
+          </li>
+          <li class="footer__contact-item">
+              <a href="https://www.instagram.com/" class="footer__contact-link">
+                  <i class="fa-brands fa-instagram 
+                  footer__contact-icon
+                  footer__contact-icon--instagram"></i>
+                  Instagram
+              </a>
+          </li>
+          <li class="footer__contact-item">
+              <a href="https://ar.linkedin.com/" class="footer__contact-link">
+                  <i class="fa-brands fa-linkedin 
+                  footer__contact-icon
+                  footer__contact-icon--linkedin"></i>
+                  LinkedIn
+              </a>
+          </li>
+          <li class="footer__contact-item">
+              <a href="https://twitter.com/?lang=es" class="footer__contact-link">
+                  <i class="fa-brands fa-square-twitter
+                  footer__contact-icon
+                  footer__contact-icon--twitter"></i>
+                  Twitter
+              </a>
+          </li>
+      </ul>
+  </div>
+  <div class="footer__column">
+      <img src="/assets/images/logo R.jpg" alt="Company Logo" class="footer__logo" width="50">
+      <h2 class="footer__company-name">
+          <b>Rsystem</b>
+      </h2>
+      <p class="footer__copyrigth">
+          Todos los derechos reservados © 2023 <b>Rsystem</b>
+      </p>
+  </div>
+  <div class="footer__column">
+      <ul class="footer__contact-container">
+          <li class="footer__contact-item">
+              <a href="Tel: (+549) 1126580187" class="footer__contact-link">
+                  <i class="fa-solid fa-square-phone-flip footer__contact-icon"></i>
+                  Telefono
+              </a>
+          </li>
+          <li class="footer__contact-item">
+              <a href="https://www.google.com/maps/dir//Pueyrred%C3%B3n+24,+B2800DLB+Z%C3%A1rate,+Buenos+Aires,+Argentina/@-34.0979272,-59.0324944,17z/" class="footer__contact-link">
+                  <i class="fa-solid fa-location-dot footer__contact-icon"></i>
+                  Localizacion
+              </a>
+          </li>
+          <li class="footer__contact-item">
+              <a href="rsystem@gmail.com" class="footer__contact-link">
+                  <i class="fa-solid fa-envelope footer__contact-icon"></i>
+                  Email
+              </a>
+          </li>
+      </ul>
+  </div>
+</footer>
+
+    
+  <script src="/js/alert.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/product-detail.js"></script>
+  <script src="/js/index.js"></script>
+  <script src="/js/orders.js"></script>
+  </body>
+</html>

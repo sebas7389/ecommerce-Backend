@@ -23,29 +23,31 @@ const getAllProducts = async (req, res) => {
 }
 
 
+async function addProduct (req, res) {
 
-
-function addProduct (req, res) {
+    console.log(req.body);
+    console.log(req.file);
+    //Lo asigno yo al generar el nombre de la imagen uuid
+     try {
 
       const product = new Product(req.body);
 
+      await product.save();
 
-     product.save()
-            .then(function(product) {
-
-            return res.status(200).send({
+      return res.status(200).send({
+                ok: true,
                 msg:`Producto guardado correctamente`,
                 product
             })
 
+    } catch(error) {
+    return res.status(200).send ({
+        ok: false,
+        msg: `No se agrego el producto`,
+        error
         })
-        .catch(error => {
-
-            console.log(error);
-            res.status(500).send(`EL producto no se pudo guardar`)
-        })
-
     }
+}
 
 
 

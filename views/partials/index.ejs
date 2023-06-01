@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>documento</title>
+</head>
+<body>
+
+    <header class="header">
+
+        
+        <nav class="navbar">
+            <a href="/index.html" class="navbar__nav-link">
+                <img class="navbar__logo" src="/assets/images/logo R.jpg" alt="Logo del ecommerce">
+            </a>
+            <div class="user-navbar">
+                <a href="/pages/order/order.html">
+                <div class="user-navbar__cart-icon-container">
+                <i class="fa-solid fa-cart-shopping user-navbar__cart-icon-container"></i>
+                </a>
+                <div class="user-navbar__cart-badge" 
+                id="cart-count">0</div>
+            </div> 
+                
+                <div class="user-navbar__user-avatar-container" id="user-navbar-user-avatar-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png" class="user-navbar__user-avatar" alt="Imagen de usuario">
+                </div>
+                <!-- TODO: avatar de la persona logueada o nombre -->
+         
+              <!-- Sub Menu que se deapliega al dar click en el avatar  --> 
+                
+              <ul class="user-navbar__nav-links-container" id="user-navbar-nav-links-container">
+                <li class="user-navbar__nav-item" id="user-navbar__name-user">
+                    <label class="user-navbar__nav-link">Usuario:</label>
+                </li>
+                <li class="user-navbar__nav-item" id="user-navbar__admin-user">
+                    <a href="/pages/adminUser/adminUser.html" class="user-navbar__nav-link">Admin Usuarios</a>
+                </li>
+                <li class="user-navbar__nav-item" id="user-navbar__admin-product">
+                    <a href="/pages/adminProducts/adminProducts.html" class="user-navbar__nav-link">Admin Productos</a>
+                </li>
+             </ul> 
+        </div>
+        
+            <ul class="navbar__nav-links-container" id="navbar__nav-linksC">
+                <li class="navbar__nav-item">
+                    <a href="/index.html" class="navbar__nav-link">Inicio</a>
+                </li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/contact/contact.html" class="navbar__nav-link">Contacto</a>
+                </li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/about-us/about.html" class="navbar__nav-link">Nosotros</a>
+                </li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/register/register.html" class="navbar__nav-link">Registrate</a>
+                </li>
+                <li class="navbar__nav-item" id="sign-in">
+                    <a href="/pages/login/login.html"  class="navbar__nav-link">Login
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    
+    <main class="main">
+
+    <!-- TODO: Carousel !  -->
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide">
+                <img src="/assets/images/asus logo.jpg" height="100" width="200" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/dell logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/amd logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/corsair-256 logo.jpg" height="100" width="200" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/hp logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/intel logo.jpg" height="100" width="150" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/lenovo logo.jpg" height="100" width="150" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/msi logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/nVIDIA logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/razer logo.jpg" height="100" width="200" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/Steelseries-logo.jpg" height="100" width="200" alt="">
+            </div>
+        </div>
+    </div><br>
+
+    <!-- Main! -->
+
+        <section class="section-cards">
+            <header class="section-cards__header">
+                <div class="section-cards__title-container">
+                    <h1 class="section-cards-title">
+                        <img src="/assets/images/asusbanner.webp" alt="" class="contenido">
+                        <img src="/assets/images/logo R.jpg" alt="" class="logo_r"><br>
+                        Tu pc gamer
+                     <h1>
+                        <p class="section-cards__subtitle">
+                           Lo mejor en tecnologia lo podes encontrar en Rsystem
+                        </p>
+                 </div> 
+                <div class="section-cards__products-search-conteiner">
+                    <div class="product-search">
+                        <label for="" class="product-search__label">Buscar</label>
+                        <input type="Text" placeholder="Buscar producto" class="product-search__input" id="search-input">
+                        <button class="product-search__btn" >Buscar</button><br>
+                    </div><br>
+
+                    <div class="section-cards__products-count" id="product-count">
+                        Se encontraron X Productos
+                    </div>
+                </div>
+            </header>
+                <h1 class="section-cards__category"> CATEGORIAS: OFERTAS </h1>
+           
+
+                    <div class="cards-container" id="card-container">
+                        <!-- <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/monitor-24-asus-vg24vq-curvo-gaming-144hz-audio-0.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    MONITOR 24" ASUS VG24VQ CURVO GAMING 144HZ AUDIO
+                                </div>
+                                <p class="card__description">
+                                    - Monitor Curvo Gamer TUF Gaming VG24VQ <br>
+                                    - 23.6 pulgadas Full HD (1920 x 1080), 144Hz<br>
+                                    - Extreme Low Motion Blur™, FreeSync™, 1ms (MPRT)<br>
+                                    - Monitor de juegos 1500R Full HD de 23.6 pulgadas<br>
+                                </p>
+                                <div class="card__date-price">
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$131.784,00</b>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article>             
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/auriculares-corsair-gaming-hs35-green-0.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    AURICULARES CORSAIR GAMING HS35 GREEN
+                                </div>
+                                <p class="card__description">
+                                    - Producto de audio: auriculares Micrófono Desmontable Sí<br>
+                                    - Respuesta de frecuencia de auriculares: 20Hz - 20 kHz<br>
+                                    - Sensibilidad de auriculares: 113dB (+/- 3dB)<br>
+                                    - Impedancia: 32 ohmios a 1 kHz<br>
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$13.738,00</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/compragamer_Imganen_general_31776_Memoria_GeiL_DDR4_16GB_3000MHz_Super_Luce_RGB_Black_646b61f7-grn.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    MEMORIA GEIL DDDR4 16GB 3000MHZ SUPER LUCE RGB BLACK
+                                </div>
+                                <p class="card__description">
+                                    - Capacidad 16 gb Velocidad 3000 mhz<br>
+                                    - Tipo DDR4 Cantidad De Memorias 1<br>
+                                    - Latencia 16 cl Voltaje 1.35 v<br>
+                                    - Aplicación: Computadoras de escritorio<br>                             
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$29.899</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/ROG THOR 850P KV.png" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    FUENTE ASUS ROG THOR 850W
+                                </div>
+                                <p class="card__description">
+                                    - Watts Nominal 850 w<br> 
+                                    - Watts Reales 852 w<br>
+                                    - Formato ATX<br>
+                                    - Compatible Con Posición Inferior Si<br>     
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$77.250</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/20200415123735_10658.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    COOLER CPU ID COOLING SE-902-SD V2
+                                </div>
+                                <p class="card__description">
+                                    - CARACTERISTICAS GENERALES Consumo 5 w Tdp 100 w<br>
+                                    - Tipo De Disipasión: Aire<br>
+                                    - DIMENSIONES  Altura 123 mm<br>
+                                    - COMPATIBILIDAD: Socket Compatibles 1200,1200 Comet Lake<br>
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$4.790</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/Silla-Gamer-Level-Up-Ares-Roja.png" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    SILLA GAMER LEVEL UP
+                                </div>
+                                <p class="card__description">
+                                    - Caracterísiticas:<br>
+                                    - Respaldo reclinable en multiples ángulos (90º / 130º / 170º)<br>
+                                    - Marco de acero con diseño ergonómico.<br>
+                                    - Soporta hasta 90kg.<br>
+                                    - Almohadillas apoya cervical y lumbar.<br>
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$64.860</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/tarjeta_rtx_s_30.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    GEFORCE RTX SERIE 30
+                                </div>
+                                <p class="card__description">
+                                    - VIDIA Reflex ofrece la mejor ventaja competitiva<br>
+                                    - La mejor capacidad de reacción.<br>
+                                    - Todo esto impulsado por las GPUs GeForce RTX Serie 30 y los monitores NVIDIA® G-SYNC®<br>
+                                    - Apunta a los objetivos más rápido<br>
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$116.530,00</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/intel.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    Procesador Intel Core I9
+                                </div>
+                                <p class="card__description">
+                                    - Productividad y entretenimiento<br>
+                                    - La superioridad tecnológica de INTEL es un beneficio para todo tipo de profesionales<br>
+                                    - Asegura el mejor rendimiento de las aplicaciones, de la transferencia de datos y la conexión<br>
+                                    - Procesador ultra rapido<br>
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$120.530,00</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/mother asus.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    Mother Asus Rog Strix Z490-E
+                                </div>
+                                <p class="card__description">
+                                    - Las tarjetas madre de la serie Rog Strix Z490-E Gaming<br>
+                                    - ofrecen buena parte de las características en la serie de gama alta ROG Strix X570 Gaming<br>
+                                    - Suministro de energía potente y una refrigeración eficaz <br>
+                                    - la serie Rog Strix Z490-E Gaming está optimizada para las CPU AMD Ryzen™ de 3.ª<br>
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$150.240,00</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/mouse razer.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    IRIS MO-IRS-WDOHBK-01
+                                </div>
+                                <p class="card__description">
+                                    - El IRIS Optical RGB Gaming Mouse viene con 16,8 millones de colores RGB<br>
+                                    - Cuenta con 9 efectos de iluminación dinámicos con iluminación de aura lateral<br>
+                                    - única para una atmósfera de juego mejorada.<br>
+                                    - El uso de un sensor óptico de grado de juego PMW-3325 con hasta 5000 DPI<br>
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$40.000,00</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/ryzen amd.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    Procesador gamer AMD Ryzen 3
+                                </div>
+                                <p class="card__description">
+                                    - Procesador gamer AMD Ryzen 3 3200G YD3200C5FHBOX de 4 núcleos<br>
+                                    - 4GHz de frecuencia con gráfica integrada Nuevo<br>
+                                    - Procesador gamer AMD Ryzen 3. Núcleos: el corazón del procesador. <br>
+                                    - Son los encargados de asignar a tu dispositivo.<br>
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$160.000,00</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article> 
+                        <article class="card">
+                            <div class="card__header">
+                                <img src="/assets/images/imagenes de cards venta/teclado razer.jpg" alt="Product Image" class="card__img">
+                            </div>
+                            <div class="card__body">
+                                <div class="card__title">
+                                    Teclado gamer Razer Huntsman V2 Analog QWERTY
+                                </div>
+                                <p class="card__description">
+                                    - El nuevo teclado Huntsman V2 Analog de Razer<br>
+                                    - Característica bastante interesante, cuenta con uos nuevos switches óptico-analógicosde<br>
+                                    - Ofrece un mejor control.El Razer Huntsman V2 Analog<br> 
+                                </p>
+                                <div class="card__date">
+                                    05/05/2023
+                                </div>
+                                <div class="card__price">
+                                    <b>$75.300,00</b>
+                                </div>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__btn-container">
+                                    <a href="/pages/productDetail/productDetail.html" class="card__btn-detail" >
+                                    Detalle
+                                    </a>
+                                </div> 
+                                <div class="card__btn-container">
+                                    <button onclick="agregarOrden(0)" class="card__btn" href="#">
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </article>  -->
+                    </div>
+                        
+            </section>
+    </main>
+
+    <!-- icono de whatsapp -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone=&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="btn-wsp" target="_blank">
+    <i class="fa fa-whatsapp icon-whatsapp"></i>
+    </a>
+
+<!-- footer! -->
+
+    <footer class="footer">
+        <div class="footer__column">
+            <ul class="footer__contact-container">
+                <li class="footer__contact-item"> 
+                    <a href="https://www.facebook.com/" class="footer__contact-link">
+                        <i class="fa-brands fa-facebook footer__contact-icon footer__contact-icon--facebook"></i>
+                        Facebook
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="https://www.instagram.com/" class="footer__contact-link">
+                        <i class="fa-brands fa-instagram 
+                        footer__contact-icon
+                        footer__contact-icon--instagram"></i>
+                        Instagram
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="https://ar.linkedin.com/" class="footer__contact-link">
+                        <i class="fa-brands fa-linkedin 
+                        footer__contact-icon
+                        footer__contact-icon--linkedin"></i>
+                        LinkedIn
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="https://twitter.com/?lang=es" class="footer__contact-link">
+                        <i class="fa-brands fa-square-twitter
+                        footer__contact-icon
+                        footer__contact-icon--twitter"></i>
+                        Twitter
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__column">
+            <img src="/assets/images/logo R.jpg" alt="Company Logo" class="footer__logo" width="50">
+            <h2 class="footer__company-name">
+                <b>Rsystem</b>
+            </h2>
+            <p class="footer__copyrigth">
+                Todos los derechos reservados © 2023 <b>Rsystem</b>
+            </p>
+        </div>
+        <div class="footer__column">
+            <ul class="footer__contact-container">
+                <li class="footer__contact-item">
+                    <a href="Tel: (+549) 1126580187" class="footer__contact-link">
+                        <i class="fa-solid fa-square-phone-flip footer__contact-icon"></i>
+                        Telefono
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="https://www.google.com/maps/dir//Pueyrred%C3%B3n+24,+B2800DLB+Z%C3%A1rate,+Buenos+Aires,+Argentina/@-34.0979272,-59.0324944,17z/" class="footer__contact-link">
+                        <i class="fa-solid fa-location-dot footer__contact-icon"></i>
+                        Localizacion
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="rsystem@gmail.com" class="footer__contact-link">
+                        <i class="fa-solid fa-envelope footer__contact-icon"></i>
+                        Email
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+
+    
+    
+</body>
+</html>

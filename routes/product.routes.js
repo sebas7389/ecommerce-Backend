@@ -1,6 +1,7 @@
 const express = require ('express');
 const router = express.Router();
 const productController = require ('./../controllers/product.controller');
+const uploadController = require('../controllers/upload.controller')
 
 //Obtener todos los productos
 router.get("/products",productController.getAllProducts);
@@ -9,7 +10,7 @@ router.get("/products",productController.getAllProducts);
 router.get('/product/:id',productController.getProduct);
 
 // Añadir un producto
-router.post("/product",productController.addProduct);
+router.post("/product",uploadController.uploadProduct,productController.addProduct);
 
 
 // Eliminar un producto

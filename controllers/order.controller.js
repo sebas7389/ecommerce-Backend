@@ -1,5 +1,5 @@
 const {responseCreator} = require ('../utils/utils');
-const Order = require ('../schemas/order.schemas');
+const Order = require ('../schemas/order.schema');
 
 
 async function createOrder (req, res ) {
