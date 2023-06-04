@@ -1,0 +1,233 @@
+.header {
+    position:fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+.navbar {
+    height: 60px;
+    background-color:rgb(196, 30, 15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: solid 4px red;
+
+    &__logo {
+        height:55px;
+        margin: 4px;
+        color: black;
+        padding: 3px;
+        background-color: red;
+        border-radius: 50%;
+        flex: 2;
+    }
+
+    &__menu-label {
+        color: $color-text-ligth;
+        // margin-left: auto;
+        height: 42px;
+        // background-color: black;
+        width: 44px;
+        margin-right: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__menu-btn {
+        position: absolute;
+        width: 70px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+    }
+
+    &__menu-btn:checked ~ &__nav-links-container {
+            height: calc(100vh - 50px);
+    }
+
+
+    &__menu-icon {
+        height: 2px;
+        background-color: red;
+        width: 18px;
+        position: relative;
+
+        &::after, &::before {
+            content: '';
+            height: 2px;
+            background-color: $color-text-ligth;
+            position: absolute;
+            width: 100%;
+            transition: all .2s ease-out;
+        }
+        &::after {
+            top: 5px;
+        }
+        &::before {
+            top: -5px;
+        }
+    }
+
+    &__menu-btn:checked ~ &__menu-label &__menu-icon {
+       
+        &::after {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        &::before {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+    }
+
+    &__nav-links-container {
+        list-style: none;
+        position: absolute;
+        flex: 2;
+        top: 60px;
+        background-color:rgb(196, 30, 15);
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: all .3s ease-out;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        justify-content: center;
+        border-radius: 5px;
+        color: white;
+
+    }
+    &__nav-item {
+        padding: 1.25rem 1rem;
+        
+        &:not(:last-child) {
+            border-bottom: 2px solid black;
+
+        }
+    }
+    &__nav-link {
+        color: $color-text-ligth;
+    }
+    &__nav-item{
+        padding: 1.25rem 0.5rem;
+        &:not(:last-child){            
+            border-bottom: none;
+        }
+        &:hover{                
+            transition: background 0.5s ease-in-out;
+        }
+    }
+  
+}
+
+.user-navbar {
+    
+    margin-left: auto;
+    color: white;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    padding: 0 1rem;
+    &__user-avatar {
+            width: 40px;
+    }
+    &__cart-icon-container {
+        color:white;
+        font-size: 1.5rem;
+    }
+    &__cart-badge{
+        font-size: 15px;
+        text-align: center;
+        position: absolute;
+        top: -2px;
+        margin: 10px;
+        height: 18px;
+        width: 16px;
+        border-radius: 50%;
+        background-color: black;
+        color: white;
+    }
+    &__nav-links-container {
+        
+        list-style: none;
+        position: absolute;
+        top: 50px;
+        right: 30px;
+        // left: -750px;
+        // margin-right: 5px;
+        background-color:rgb(229, 238, 227);
+        width: 120px;
+        height: 0;
+        overflow: hidden;
+        transition: all .2s ease-out;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        justify-content: center;
+        border-radius: 5px;
+    }
+
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+    .navbar {
+        position: static;
+        height: 60px;
+        &__menu-label, &__menu-btn {
+            display: none;
+        }
+        &__nav-links-container {
+            position: static;
+            flex-direction: row;
+            height: 100%;
+            width: auto;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar {
+        position: static;
+        height: 60px;
+        &__menu-label, &__menu-btn {
+            display: none;
+        }
+        &__nav-links-container {
+            position: static;
+            flex-direction: row;
+            height: 100%;
+            width: auto;
+           
+        }
+        &__nav-item{
+            padding: 1.25rem 0.75rem;
+            &:not(:last-child){            
+                border-bottom: none;
+            }
+        }
+        &__nav-link:not(:has(img)){          
+            
+            padding: 0.25rem 1rem;
+            border-left: 0.2rem solid black ;
+            border-right: 0.2rem solid black ;
+            &:hover{                       
+                color: black;
+                transition: border 0.5s ease;          
+                border-left: 0.2rem solid white  ;
+                border-right: 0.2rem solid white ;
+            }
+        }
+    }
+    .user-navbar {
+        order: 3;
+        &__cart-icon-container:hover{
+            transition: color 1s ease;
+            color: black;
+        }
+    }
+}

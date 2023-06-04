@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Header!! -->
+ <%- include('partials/header') %>
+
+<h1 class="admin-product__title">ABM Productos</h1>
+
+<main class="main admin-product-container">
+<form class="admin-product-form" id="admin-product-form" onsubmit="addProduct(event)"         data-custom="Mi atributo personal"></form>
+<div class="admin-product-form__items">
+<label>Nombre del Producto</label><br>
+<input type="text" name="nombreDelProducto" id="nombreDelProducto">
+</div>
+<div class="admin-product-form__items">
+<label>Categoria</label><br>
+<select name="categoryProduct" id="categoryProduct" required>
+    <option value="MO">Monitor</option>
+    <option value="AU">Auriculares</option>
+    <option value="ME">Memoria</option>
+    <option value="FU">Fuente</option>
+    <option value="CO">Cooler</option>
+    <option value="SI">Silla</option>          
+</select>
+</div>
+<div class="admin-product-form__items">
+<label>Descripción</label><br>
+<textarea name="description" class="admin-product-form__input"
+id="description" rows="5" required> </textarea>
+</div>
+
+<div class="admin-product-form__items">
+<label>Precio</label><br>
+<input type="number" name="priceAñadir" id="priceAñadir"> 
+</div>  
+
+<div class="admin-product-form__items">
+<label>URL de Imagen</label><br>
+<input type="url" name="imagenAñadir" id="imagenAñadir">
+
+<div class="admin-product-form__form-items">
+    <button type="submit" class="admin-product__submit-btn" id="admin-product__submit-btn">Cargar Producto</button> 
+</div>
+
+</form>
+
+<h2>Tabla de Productos:</h2>
+<table class="admin-product-table">
+<thead>
+    <tr>
+        <th>Imagen</th>
+        <th>Producto</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+    </tr>
+</thead>
+<tbody id="admin-product-table_body">
+    
+</tbody>
+</table>
+</div>
+
+</main>
+
+<!-- footer! -->
+<%- include('partials/footer') %>
+   
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <script src="/js/header.js"></script>
+    <script src="/js/alert.js"></script>
+    <script src="/js/adminProducts.js"></script>
+   
+</body>
+
+</html>

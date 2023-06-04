@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head', {tabTitle:'Principal'}) %>
+<body>
+    <%- include('partials/header') %>
+<main class="main">
+
+    <!-- TODO: Carousel !  -->
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide">
+                <img src="/assets/images/asus logo.jpg" height="100" width="200" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/dell logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/amd logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/corsair-256 logo.jpg" height="100" width="200" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/hp logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/intel logo.jpg" height="100" width="150" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/lenovo logo.jpg" height="100" width="150" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/msi logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/nVIDIA logo.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/razer logo.jpg" height="100" width="200" alt="">
+            </div>
+            <div class="slide">
+                <img src="/assets/images/Steelseries-logo.jpg" height="100" width="200" alt="">
+            </div>
+        </div>
+    </div><br>
+
+    <!-- Main! -->
+
+        <section class="section-cards">
+            <header class="section-cards__header">
+                <div class="section-cards__title-container">
+                    <h1 class="section-cards-title">
+                        <img src="/assets/images/asusbanner.webp" alt="" class="contenido">
+                        <img src="/assets/images/logo R.jpg" alt="" class="logo_r"><br>
+                        Tu pc gamer
+                     <h1>
+                        <p class="section-cards__subtitle">
+                           Lo mejor en tecnologia lo podes encontrar en Rsystem
+                        </p>
+                 </div> 
+                <div class="section-cards__products-search-conteiner">
+                    <div class="product-search">
+                        <label for="" class="product-search__label">Buscar</label>
+                        <input type="Text" placeholder="Buscar producto" class="product-search__input" id="search-input">
+                        <button class="product-search__btn" >Buscar</button><br>
+                    </div><br>
+
+                    <div class="section-cards__products-count" id="product-count">
+                    </div>
+                </div>
+            </header>
+                <h1 class="section-cards__category"> CATEGORIAS: OFERTAS </h1>
+           
+
+                    <div class="cards-container" id="card-container"> 
+                    </div>  
+            </section>
+   </main>
+
+    <%- include('partials/whatsapp') %>
+    <%- include('partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <script src="/js/alert.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/header.js"></script>
+
+</body>
+</html>

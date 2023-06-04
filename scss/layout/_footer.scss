@@ -1,0 +1,81 @@
+.footer {
+    background-color:rgb(196, 30, 15);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    &__column {
+        padding: 1rem;
+        margin: auto;
+    }
+    &__logo{
+        color: white;
+        background-color: red;
+        border-radius: 50%;
+        width: 90px;
+        padding: 2px;
+        margin: 15px;
+        box-shadow: 0px 0px 20px 0px white;
+        
+    }
+    &__company-name{
+        color: white;
+        font-size: 25px;
+
+    }
+    &__copyrigth{
+        color: white;
+        margin: 10px;
+    }
+
+    &__contact-item {
+        list-style: none;
+        
+    }
+
+    &__contact-link {
+        color: white;
+        padding: .25rem;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        gap: .5rem;
+        
+
+        
+    }
+
+    &__contact-icon {
+        font-size: 1.75rem;
+        &--facebook {
+            color: #38529a;
+        }
+        &--instagram {
+            color: #f14d59;
+        }
+        &--linkedin {
+            color: #0077b6;
+        }
+        &--twitter {
+            color:rgb(29 155 240);
+        }
+    }
+
+}
+@media screen and (min-width: 600px){
+    .footer{
+        flex-direction: row;
+        justify-content:space-around;
+        
+        &__column{
+            &:nth-child(2){  
+                border-top: none;
+                border-bottom: none;          
+                border-left: 0.01rem solid white;
+                border-right: 0.01rem solid white;
+                padding: 0 3rem;
+            }
+        }
+    }
+}
+

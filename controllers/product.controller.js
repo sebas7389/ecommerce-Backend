@@ -1,7 +1,9 @@
-const Product = require ('./../schemas/product.schema');
-const {responseCreator} = require ('../utils/utils');
-
-
+const res = require('express/lib/response');
+const Product = require('../schemas/product.schema')
+const {responseCreator} = require('../utils/utils')
+const saltRounds = 10;
+const jwt = require('jsonwebtoken');
+const secret = process.env.JWT_SECRET;
 
 const getAllProducts = async (req, res) => {
 
@@ -51,33 +53,30 @@ async function addProduct (req, res) {
 
 
 
-function deleteProduct (req, res) {
+async function deleteProduct (req, res) {
 
-    const id = req.params.id;
+    try {
+        const id = req.params.id;
+        
+    
 
-    Product.findByIdAndDelete(id).then((deleted) =>{
+  const deleteProduct = await Product.findByIdAndDelete(id)
 
-            if(!deleted) {
+            if(!deleteProduct) {
                 return res.status(404).send({
                     msg:`No se encontro el producto a borrar`
             })
-    }
-
+        }
             return res.status(200).send({
                 msg: `Producto borrado correctamente`,
-                deleted
+                deleteProduct
             })
 
-        })
-        .catch(error =>{
-            console.log(error)
+        }catch(error) {
             return res.status(500).send({
                 msg:`Error al borrar el producto`,
-                deleted
-            })
-
-            
-        })
+            })        
+        }
 
     }
  

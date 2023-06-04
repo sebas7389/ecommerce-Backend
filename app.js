@@ -9,14 +9,13 @@ const viewsRoutes = require('./routes/views.routes');
 const cors = require ('cors');
 
 //Cargar configuracion de plantillas de javascript
-aap.set('view engine' , 'ejs')
+app.set('view engine' , 'ejs')
 app.use(express.static("public"));
 //Middlewares
 app.use(express.json())
 //Evitar cors error
 app.use(cors());
-
-app.use(viewsRoutes)
+app.use(express.urlencoded({ extended: true }));
 
 // Definir rutas a usar por mi app express.
 app.use ('/api',[
@@ -26,6 +25,7 @@ userRoutes,
 orderRoutes,
 categoryRouter,
 uploadRouter,
+viewsRoutes
 ])
 
 
