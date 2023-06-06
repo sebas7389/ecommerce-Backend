@@ -4,7 +4,7 @@
   "description": "Servidor ecommerce en NodeJS,Express, Mongoose, JWT, con CRUD de Users, Productos, Ordenes.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Seba",
   "license": "ISC",
