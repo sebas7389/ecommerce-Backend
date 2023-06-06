@@ -1149,7 +1149,7 @@ body {
 }
 
 .order-table {
-  width: 90%;
+  width: 100%;
 }
 
 .order-table thead tr {
@@ -1164,10 +1164,11 @@ body {
 
 .order-table tr td:not(:first-child) {
   padding: 0.5rem;
+  background-color: black;
 }
 
 .order-table tbody tr:nth-child(odd) {
-  background-color: rgb(236, 250, 255);
+  background-color: black;
 }
 
 .order-table tr th {
@@ -1208,14 +1209,14 @@ body {
   margin-top: 65px;
   text-align: center;
   border-bottom: 1px solid black;
-  background-color: rgb(228, 228, 228);
+  background-color: black;
+  color: white;
 }
 .order__img {
-  width: 70px;
+  width: 100px;
   -o-object-fit: cover;
      object-fit: cover;
-  height: 70px;
-  border-radius: 50%;
+  height: 90px;
   display: block;
   margin: 0 auto;
 }

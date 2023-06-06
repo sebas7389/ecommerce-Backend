@@ -12,6 +12,9 @@ const product = products[index];
 
 const mainD = document.getElementById('main')
 
+const URL = 'http://localhost:8000/api';
+const URL_public = 'http://localhost:8000';
+
 function renderizarDetail() {
   mainD.innerHTML = ``;
 
@@ -143,6 +146,6 @@ let input = document.getElementById("quantity-input");
     })
     if(!existe)
        agregarOrden();
-    window.location.href = "/pages/order/order.html";
+    window.location.href = "/order";
   
   }

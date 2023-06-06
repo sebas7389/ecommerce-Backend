@@ -1,16 +1,42 @@
-const { default: axios } = require("axios");
-
 let Products = [];
+let salectCategoryHtml = document.getElementById ('category')
 
 //Tabla de productos
 const tableBody = document.getElementById('admin-product-table_body');
 const submitBtn = document.getElementById('admin-product__submit-btn');
 const productForm = document.getElementById('admin-product-form');
+const inputImgForm = document.getElementById('admin-product-input-img');
+
 
 let editIndex;
 
+
 const URL = 'http://localhost:8000/api';
 const token = localStorage.getItem('token');
+
+
+(async function cargarCategorias(){
+    try {
+        
+        const response = await axios.get(`${URL}/categorys`)
+        const categories = response.data.categories
+        selectCategoryHTML.innerHTML = '<option value="" selected></option>';
+        categories.forEach((cat)=> {
+            selectCategoryHTML.innerHTML += `<option value="${cat._id}">${cat.name}</option>` 
+        })
+    } catch (error) {
+        console.log(error)
+    }
+})()
+
+
+//Cargar fecha actual al input Date
+function cargarFechaActual(){
+    var fecha = new Date();
+    document.getElementById("bornDateInput").value = fecha.toJSON().slice(0,10);
+}
+cargarFechaActual();
+
 
 
 
@@ -25,29 +51,37 @@ async function cargarProductos(){
     }
 }
 
-function renderizarTabla(){
+function renderizarTabla(products){  
+    
     tableBody.innerHTML = ''
-    if(Products.length === 0) {
-        tableBody.innerHTML = '<tr class="disable"> <td coldspan = 6>NO SE ENCONTRARON PRODUCTOS </td></tr>';
-        return;
-    }
-    Products.forEach((producto,index)=>{
-        let imageSrc = '/assest/image/no-product.png';
-       if(producto.image) 
-            imageSrc  = producto.image;
+        if(products.length === 0) {
+            tableBody.innerHTML = '<tr class="disable"> <td colspan = 6>NO SE ENCONTRARON PRODUCTOS </td></tr>';
+            return;
+        } 
+        
+    products.forEach((producto)=>{
+           
+      let imageSrc = producto.image ? `${URL}/upload/product/${producto.image}` : '/assets/images/no-product.png';
        const tableRow = `
        <tr>
-                <td><img class= "admin-product__img" src="${imageSrc}" alt="${producto.name}" width="80px"></td>
+                <td class= "admin-product__img-container"><img class= "admin-product__img" src="${imageSrc}" 
+                alt="${producto.name}" width="80px">
+                <input type="file" id="inputFile" style="display:none" accept="image/*">
+                <button class ="admin-product__img-btn" id ="admin-product-img-btn" 
+                onclick= "actualizarImg('${producto._id}')">
+                Actualizar Imagen
+                </button> 
+                </td>
                 <td>${producto.name}</td>
                 <td class="admin-product__desc">${producto.description}</td>
                 <td class="admin-product__price">$ ${producto.price}</td>
-                <td class="admin-product__date">${producto.date}</td>
+                <td class="admin-product__date">${formatDateAR(producto.updateAt)}</td>
                 <td >
                 <div class = "admin-product__actions">
-                <button class= "admin-product__delete-btn" onclick= "deleteProduct(${index})" >
+                <button class= "admin-product__delete-btn" onclick= "deleteProduct('${producto._id}')" >
                 <i class="fa-regular fa-trash-can"></i>
                 </button>
-                <button class= "admin-product__btn-edit" data-indice="${index}" onclick= "editProduct(${index})" >
+                <button class= "admin-product__btn-edit" data-indice="${producto._id}" onclick= "editProduct('${producto._id}')" >
                 <i class="fa-solid fa-pencil"></i>
                 </div>
                 </button>
@@ -58,10 +92,9 @@ function renderizarTabla(){
     })
 }
 
-renderizarTabla();
+cargarProductos();
 
 async function addProduct(evt){
-
     try {
         evt.preventDefault();
         const elements = evt.target.elements;
@@ -114,16 +147,15 @@ function deleteProduct(id){
             if (result) 
                 {
                     console.log('entro');
-                response = await  axios.delete(`${URL}/products/${id}`,{
+                response = await  axios.delete(`${URL}/product/${id}`,{
                             headers: {Authorization: token}});  
-                showAlert('Producto eliminado Correctamente')
+                showAlert('Producto eliminado Correctamente','exito')
                 cargarProductos();
                 }
         } catch (error) {
             console.log(error)
         }
         })
-
 }
 
 
@@ -150,7 +182,6 @@ async function editProduct(id){
    el.price.value = product.price;
    inputImgForm.style.display ='none';
    el.date.value = formatDate(product.updateAt);
-   
 }
 
 //Funcion para filtrar la table de productos al precionar el boton de Filtrar

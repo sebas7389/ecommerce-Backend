@@ -1,7 +1,6 @@
 //Guardo la orden del local storage en la variable Products
-let Products = JSON.parse(localStorage.getItem('order')) || [];
+let Products = JSON.parse(sessionStorage.getItem('order')) || [];
 const URL = 'http://localhost:8000/api';
-const URL_public = 'http://localhost:8000';
 
 
 //Tabla de productos
@@ -13,7 +12,7 @@ let editIndex;
 
 
 function renderizarTabla(){
-    let totalOrden = 0;
+  let totalOrden = 0;
     tableBody.innerHTML = ''
     if(Products.length === 0) {
         tableBody.innerHTML = '<tr class="disable"> <td coldspan = 6>NO SE ENCONTRARON PRODUCTOS </td></tr>';
@@ -21,7 +20,9 @@ function renderizarTabla(){
     }
     
     Products.forEach((producto,index)=>{
-        let imageSrc = '/assest/image/no-product.png';
+
+      let imageSrc = '/assets/images/funciones-pagina/not-found.webp';
+
        if(producto.image) 
             imageSrc  = producto.image;
        const tableRow = `
@@ -77,20 +78,51 @@ function deleteProduct(id){
 
 }
 
-function finalizarCompra(){
+async function finalizarCompra(){
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   if(!currentUser){
-    showAlert('Debe estar logueado para poder Finalizar la compra')
+    showAlert('Debe estar logueado para poder Finalizar la compra','info')
   } 
   else{
     if(Products.length === 0){
-      showAlert('Debe seleccionar un producto para poder Finalizar la compra','info')
+      showAlert('Debe seleccionar un producto para poder Finalizar la compra')
     }else{
-      localStorage.removeItem('order')
+      try {
+      let totalOrden = 0;  
+      const orden = {};
+      const productos = [];
+      Products.forEach((product) => {
+        const producto = {
+          productId: product.id,
+          quantity: product.cant,
+          price: product.price
+        }
+        totalOrden += product.total
+        productos.push(producto)
+      });
+      
+      orden.products = productos;
+      orden.total = totalOrden;
+      orden.userId = currentUser._id;
+      orden.createdAt = Date.now;
+      orden.status = 'onhold';
+      orden.updateAt = Date.now;
+      
+      await axios.post(`${URL}/orders`,orden);
+      
+      sessionStorage.removeItem('order')
       Products = [];
       renderizarTabla();
-      showAlert('Compra Finalizada','exito')
+      showAlert('Compra Finalizada')
       contarProductos();
+      } catch (error) {
+        showAlert('No se pudo procesar la Orden','error');
+        console.log(error);
+      }
+
+
+
+      
     }
     
   } 
@@ -122,8 +154,9 @@ function increment(id) {
     Products[id].total = Products[id].cant * parseInt(Products[id].price);
       
 //Guardarlo en el local storage
-localStorage.setItem('order',JSON.stringify( Products));
+sessionStorage.setItem('order',JSON.stringify( Products));
 renderizarTabla();
+
 
 contarProductos();
 

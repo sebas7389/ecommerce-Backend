@@ -13,8 +13,6 @@ const UserSchema = new Schema({
     date:{type: Date},
     image:{type: String},
     createdAt:{type: Date, default: Date.now},
-    age: { type: Number, required: true, min: 12, max: 120 },
-    active: { type: Boolean, default: true, required: true },
 
 
 

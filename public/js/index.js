@@ -78,24 +78,11 @@ function renderizarProductos(productsL) {
 }
 cargarProductos();
 
-function searchProduct() {
-    var searchTerm = document.getElementById('search-input').value;
-    var products = JSON.parse(localStorage.getItem('Products'));
-    var foundProducts = products.filter(function (product) {
-        return product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    });
-
-    var productCountElement = document.getElementById('product-count');
-    productCountElement.textContent = 'Se encontraron ' + foundProducts.length + ' productos';
-
-    renderizarCard(foundProducts)
-}
-
 
 
 async function addToCart(id){
     try {
-        const respuesta = await axios.get(`${URL}/products/${id}`);
+        const respuesta = await axios.get(`${URL}/product/${id}`);
         const product = respuesta.data.product;
     if (!product)
         return showAlert('No se encontro el producto')  
@@ -125,9 +112,9 @@ async function addToCart(id){
     sessionStorage.setItem('order',JSON.stringify( Order));
 
     //Alerta de Producto agregado
-    showAlert('Producto agregado al carrito','exito')
+    showAlert('Producto agregado al carrito')
 
-    addToCart();
+    contarProductos();
 
 
     } catch (error) {
@@ -138,44 +125,48 @@ async function addToCart(id){
 
 }
 
+//Funcion para filtrar las cards de productos
+function filtrarProductos(category){
+    let productsFiltrados = [];
+if(category === 'Todos'){
+    productsFiltrados = Products;
+}else{
+    productsFiltrados = Products.filter((producto) => {
+        producto.category.name == category ? filtra = true : filtra = false;
+        return filtra
+         });
+        }
+renderizarProductos(productsFiltrados);
 
-
-function deleteProduct(id){
-    
-    showQuestion('¿Esta seguro que desea borrar el producto seleccionado?')
-    .then(async(result) => {
-    try {
-        
-        if (result) 
-            {
-                console.log('entro');
-            response = await  axios.delete(`${URL}/products/${id}`,{
-                        headers: {Authorization: token}});  
-            showAlert('Producto eliminado Correctamente')
-            cargarProductos();
-            }
-    } catch (error) {
-        console.log(error)
-    }
-    })
 }
 
+//Funcion los productos al presionar enter en el input de busqueda
+function buscarProductosInput(evt){
+if (evt.keyCode !== 13) return;
+const text = evt.target.value.toLowerCase().trim();
+buscarProductos(text)
+}
 
-function editProduct(id) {
+//Filtra los productos al precionar el boton buscar
+function buscarProductosBtn(){
+const text =  document.getElementById('products-search').value;
+buscarProductos(text)
+}
 
-    submitBtn.classList.add('edit-btn') //le agrega una clase al boton para que tome los estilos del css
-    submitBtn.innerText = 'Modificar Producto' //va a cambiar lo que dice el boton
+//Funcion para filtrar la table de Productos segun un texto pasado como parametro
+function buscarProductos(text){
+const productsFiltrados = Products.filter((product) => {
+        const filtra = product.name.toLowerCase().includes(text.toLowerCase())
+        return filtra
+         });
 
-    let product = Products[id];
-    console.table(product)
-    const el = productForm.elements;
-    el.name.value = product.name
-    el.description.value = product.description
-    el.price.value = product.price
-    el.image.value = product.image
+const cant = productsFiltrados.length;
 
-    editIndex = id; //esta declarado arriba de renderizarTabla y se hace para que podamos traernos el id del que estamos editando para mas tarde que se termine de modificar
-} 
+document.getElementById('products-search-count').innerText = 'Se encontraron ' + cant + ' productos';
+
+renderizarProductos(productsFiltrados);
+
+}
 
 //formatea la fecha devuelta por mondo db
 function formatDateAR(fechaMongoDB){

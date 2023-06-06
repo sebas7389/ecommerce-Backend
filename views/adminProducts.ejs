@@ -18,61 +18,73 @@
 <h1 class="admin-product__title">ABM Productos</h1>
 
 <main class="main admin-product-container">
-<form class="admin-product-form" id="admin-product-form" onsubmit="addProduct(event)"         data-custom="Mi atributo personal"></form>
-<div class="admin-product-form__items">
-<label>Nombre del Producto</label><br>
-<input type="text" name="nombreDelProducto" id="nombreDelProducto">
-</div>
-<div class="admin-product-form__items">
-<label>Categoria</label><br>
-<select name="categoryProduct" id="categoryProduct" required>
-    <option value="MO">Monitor</option>
-    <option value="AU">Auriculares</option>
-    <option value="ME">Memoria</option>
-    <option value="FU">Fuente</option>
-    <option value="CO">Cooler</option>
-    <option value="SI">Silla</option>          
-</select>
-</div>
-<div class="admin-product-form__items">
-<label>Descripción</label><br>
-<textarea name="description" class="admin-product-form__input"
-id="description" rows="5" required> </textarea>
-</div>
-
-<div class="admin-product-form__items">
-<label>Precio</label><br>
-<input type="number" name="priceAñadir" id="priceAñadir"> 
-</div>  
-
-<div class="admin-product-form__items">
-<label>URL de Imagen</label><br>
-<input type="url" name="imagenAñadir" id="imagenAñadir">
-
-<div class="admin-product-form__form-items">
-    <button type="submit" class="admin-product__submit-btn" id="admin-product__submit-btn">Cargar Producto</button> 
-</div>
-
-</form>
-
-<h2>Tabla de Productos:</h2>
-<table class="admin-product-table">
-<thead>
-    <tr>
-        <th>Imagen</th>
-        <th>Producto</th>
-        <th>Descripción</th>
-        <th>Precio</th>
-        <th>Fecha</th>
-        <th>Acciones</th>
-    </tr>
-</thead>
-<tbody id="admin-product-table_body">
+    <form class="admin-product-form" id="admin-product-form" onsubmit="addProduct(event)"         data-custom="Mi atributo personal">
+    <div class="admin-product-form__items">
+        <label for="name" >Nombre Producto</label><br>
+        <input type="text" name="name" class="admin-product-form__input"
+        id="name" placeholder="Nombre del Producto" 
+        required minlength="3" maxlength="50" autofocus >
+    </div>
+    <div class="admin-product-form__items">
+        <label for="category">Categoria</label><br>
+        <select name="category" id="category"  class="admin-product-form__input" required>
+                    
+        </select>
+    </div>
+    <div class="admin-product-form__items">
+        <label for="description" >Descripción</label><br>
+        <textarea name="description" class="admin-product-form__input"
+        id="description" rows="5" required> </textarea>
+    </div>
+    <div class="admin-product-form__items">
+        <label for="price" >Precio</label><br>
+        <input type="number" name="price" id="price" required min="1" class="admin-product-form__input"  > 
+    </div>  
+    <div class="admin-product-form__items" id="admin-product-input-img">
+        <label for="image">URL de Imagen</label><br>
+                <div class="input-box">
+                <input type="file" accept="image/*" name="image" >
+            </div>
+    </div>
     
-</tbody>
-</table>
-</div>
 
+    <div class="admin-product-form__items">
+        <label for="bornDateInput">Fecha de Actualización</label><br>
+        <input type="date" name="date" id="bornDateInput" class="admin-product-form__input"
+        placeholder="dd/mm/aaaa"   >
+    </div>
+    
+    <div class="admin-product-form__form-items">
+        <button type="submit" class="admin-product__submit-btn" id="admin-product__submit-btn">Cargar Producto</button> 
+    </div>
+    
+</form>
+<div class="admin-product-table-container">
+    <div class="admin-product-search-container">
+        <label for="search" style="font-weight: bold;">Buscar en la Tabla:</label>
+        <input type="text" name="search" class="admin-product-form__input" id="search" 
+        onkeyup="buscarProductosInput(event)">
+        <button  type="button" class="admin-product-search-container__btn" onclick="metodoFilter()" >Filtrar</button><br>
+        <label id="admin-product-search-container_cant">Cantidad de Coincidencias: 0</label>
+    </div>
+    <h2>Tabla de Productos:</h2>
+    <table class="admin-product-table">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="admin-product-table_body">
+            
+        </tbody>
+    </table>
+</div>
+    
 </main>
 
 <!-- footer! -->

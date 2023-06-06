@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const viewsController = require('../controllers/views.controller.js')
+const viewsController = require('../controllers/views.controller.js');
 
 // La definicion de todas las rutas vistas y sus respectivos controladores
 router.get('/',(req, res) => res.render('index'));
-router.get('/index',(req,res) => res.render('index'))
+router.get('/index',(req,res) => res.render('index'));
 router.get('/contact',(req, res) => res.render('contact'));
 router.get('/about',(req, res) => res.render('about'));
 router.get('/register',(req, res) => res.render('register'));

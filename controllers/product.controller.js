@@ -43,7 +43,7 @@ async function addProduct (req, res) {
             })
 
     } catch(error) {
-    return res.status(200).send ({
+    return res.status(500).send ({
         ok: false,
         msg: `No se agrego el producto`,
         error
@@ -82,28 +82,17 @@ async function deleteProduct (req, res) {
  
 
 async function getProduct(req, res) {
-
-        console.log('iamado')
         try {
-            const Product = await Product.findById(req.params.id);
-    
-            // if(!product) return res.status(404).send({
-            //     msg: `No se encontro el producto`,
-            //     ok: false
-            // });
-    
+            const product = await Product.findById(req.params.id);
             return res.status(200).send({
                 msg: `Producto encontrado`,
                 ok: true,
                 product
             });
-    
+            
         } catch (error) {
-            console.log(error);
-            res.status(400).send({
-                msg: `Error al obtener productos`,
-                ok: false
-            })
+        console.log(error);
+         return responseCreator(res, 400, `Error al obtener productos` )
         }
     }
 

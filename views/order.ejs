@@ -17,23 +17,28 @@
     <%- include('partials/header') %>
  
     <main class="main">
-        <section class="section-cards">
-    
-            <div class="section-cards__category">
-                <h1 id="title-h1">
-                    TU ORDEN DE COMPRA
-                </h1>
-            </div>
-    
-            <div class="table-order-container">
-                <table class="table-product">
-                    <tbody id="order-table_body">
-
-                    </tbody>
-                </table>
-                <button class="table-order-container__finalize-purchase" onclick="finalizarCompra()">Finalizar Compra</button>
-            </div>
-        </section>
+        <h1>Mi Orden de Pedido:</h1>
+        <div class="order-table-container">
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>IMAGEN</th>
+                        <th>PRODUCTO</th>
+                        <th>PRECIO</th>
+                        <th>CANTIDAD</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody id="order-table_body">
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="order-finalizar">
+            <button class="order-finalizar__btn" id="order-finalizar-btn" onclick="finalizarCompra()">
+                FINALIZAR COMPRA
+            </button>
+        </div>
     </main>
 
     <!-- footer! -->

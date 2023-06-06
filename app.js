@@ -16,6 +16,7 @@ app.use(express.json())
 //Evitar cors error
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use(viewsRoutes)
 
 // Definir rutas a usar por mi app express.
 app.use ('/api',[
@@ -25,7 +26,6 @@ userRoutes,
 orderRoutes,
 categoryRouter,
 uploadRouter,
-viewsRoutes
 ])
 
 
