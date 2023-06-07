@@ -29,15 +29,13 @@ function renderizarProductos(productsL) {
 
     productsL.forEach((producto,index )=> {
 
-     const card = document.createElement('article')
+     const card = document.createElement('article');
      card.classList.add('card');   
 
-    let imageSrc = producto.image ? `${URL_public}/upload/product/${producto.image}` : '/assets/images/funciones-pagina/not-found.webp';
-    
     // let index = Products.findIndex((p) => p.name === producto.name);
 
     card.innerHTML = `<div class="card__header">
-                    <img src="${imageSrc}" alt= "${producto.image}" alt ="${producto.name}" class="card__img">
+                    <img src="/upload/product/${producto.image}" alt ="${producto.name}" class="card__img">
                 </div>
                 <div class="card__body">
                     <div class="card__title">
