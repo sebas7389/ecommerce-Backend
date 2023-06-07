@@ -1,22 +1,22 @@
-const params = location.search;
-
+const params = window.location.search;
 const index = params.split('id=')[1];
-
 const paramsURL = new URLSearchParams(params);
-
 const paramsEntries = Object.fromEntries(paramsURL);
 
-const products = JSON.parse(localStorage.getItem('products'));
+const products = [];
 
-const product = products[index];
 
-const mainD = document.getElementById('main')
 
-const URL = 'http://localhost:8000/api';
-const URL_public = 'http://localhost:8000';
+const URL = 'https://eit1-ecommerce-fullstack.onrender.com'
 
-function renderizarDetail() {
-  mainD.innerHTML = ``;
+async function renderizarDetail(id) {
+
+try {
+
+
+
+  const respuesta = await axios.get(`${URL}/products/${id}`)
+      product = respuesta.data.product
 
   const detial = `
                 <div class = "card__detailr">
@@ -81,15 +81,15 @@ function renderizarDetail() {
               </div>
             </div>`
 
-  mainD.innerHTML = detial
-} 
-renderizarDetail()
+  
+} catch (error) {
+  console.log(error)
+}
+}
+
+renderizarDetail(id)
     
 
-
-
-let input = document.getElementById("quantity-input");
-    let currentValue = parseInt(input.value);
 
     function increaseInput() {
         input.value = currentValue + 1;

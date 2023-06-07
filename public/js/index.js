@@ -3,8 +3,7 @@ const salectCategoryHtml = document.getElementById ('category')
 
 let products = [];
 
-const URL = 'http://localhost:8000/api';
-const URL_public = 'http://localhost:8000';
+const URL = 'https://eit1-ecommerce-fullstack.onrender.com'
 
 async function cargarProductos(){
     try {
