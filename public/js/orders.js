@@ -70,7 +70,7 @@ renderizarTabla();
 function deleteProduct(id){
     Products.splice(id,1)
     //Guardarlo en el local storage
-    localStorage.setItem('order',JSON.stringify( Products));
+    localStorage.setItem('order',JSON.stringify(Products));
     
     renderizarTabla();
     showAlert('Producto Eliminado de la Orden')
