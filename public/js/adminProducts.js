@@ -18,7 +18,7 @@ const token = localStorage.getItem('token');
 (async function cargarCategorias(){
     try {
         
-        const response = await axios.get(`${URL}/categorys`)
+        const response = await axios.get(`${URL}/category`)
         const categories = response.data.categories
         selectCategoryHTML.innerHTML = '<option value="" selected></option>';
         categories.forEach((cat)=> {
@@ -108,7 +108,7 @@ async function addProduct(evt){
             updateAt: elements.date.value,
             }
 
-            const response = await axios.put(`${URL}/products/${editIndex}`,updateProduct,{
+            const response = await axios.put(`${URL}/product/${editIndex}`,updateProduct,{
             headers: {Authorization: token}});
             if(!response)
                 showAlert('No se pudo modificar el Producto','error')
@@ -117,7 +117,7 @@ async function addProduct(evt){
             inputImgForm.style.display ='block';
             
         }else {
-            const response = await axios.post(`${URL}/products`,formFile,{
+            const response = await axios.post(`${URL}/product`,formFile,{
             headers: { Authorization: token } });
             if(!response)
                 showAlert('No se pudo agregar el Producto','error')
@@ -165,7 +165,7 @@ async function editProduct(id){
     submitBtn.innerText = 'Modificar Producto'
 
    const token = localStorage.getItem('token');
-   response = await axios.get(`${URL}/products/${id}`,{
+   response = await axios.get(`${URL}/product/${id}`,{
     headers: {
         Authorization: token
     }
@@ -251,7 +251,7 @@ function actualizarImg(id) {
         const formData = new FormData();
             formData.append("image", inputFile.files[0] );
 
-        const response = await axios.put(`${URL}/products/${id}/image`,formData,{
+        const response = await axios.put(`${URL}/product/${id}/image`,formData,{
             headers: {Authorization: token}});
             
         cargarProductos();
