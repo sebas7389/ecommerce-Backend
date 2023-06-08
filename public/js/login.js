@@ -1,7 +1,7 @@
 //1-a guardo el formulario en una variable
 const loginForm = document.getElementById("loginForm");
 
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com'
+const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
 
 
 

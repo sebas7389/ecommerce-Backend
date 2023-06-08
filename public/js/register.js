@@ -5,7 +5,7 @@ const registerForm = document.querySelector('#registerForm');
 //obtener boton submit
 const resgisterBtn = document.getElementById('registerSubmit');
 
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com'
+const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
 
 registerForm.addEventListener('submit', async (evt)=>{
     
@@ -21,7 +21,7 @@ registerForm.addEventListener('submit', async (evt)=>{
         console.warn('El password no coincide')
     }
 
-    const user = {
+    const use = {
         fullName: el.fullName.value,
         email: el.email.value,
         password: el.password1.value,
@@ -31,7 +31,7 @@ registerForm.addEventListener('submit', async (evt)=>{
         role: 'USER_ROLE'
     }
     
-    const response = await axios.post(`${URL}/users` , user);
+    const response = await axios.post(`${URL}/users` , use);
     Users = response.data.user; 
    
 

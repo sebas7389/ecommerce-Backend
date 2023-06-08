@@ -1,6 +1,6 @@
 //Guardo la orden del local storage en la variable Products
 let Products = JSON.parse(sessionStorage.getItem('order')) || [];
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com'
+const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
 
 
 //Tabla de productos

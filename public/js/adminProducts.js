@@ -11,7 +11,7 @@ const inputImgForm = document.getElementById('admin-product-input-img');
 let editIndex;
 
 
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com'
+const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
 const token = localStorage.getItem('token');
 
 

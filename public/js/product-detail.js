@@ -7,7 +7,7 @@ const products = [];
 
 
 
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com'
+const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
 
 async function renderizarDetail(id) {
 
