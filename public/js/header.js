@@ -14,7 +14,7 @@ function renderHeaderLinks(){
 if(currentUser){
     const name = currentUser.fullName.split(" ");
     nameUser.innerHTML = `<label class="user-navbar__name-user">${name[0]}</label>`;
-    signIn.innerHTML = `<a href="/index" onclick="logout()"  class="user-navbar__logout">Logout</a>`
+    signIn.innerHTML = `<a href="/index" onclick="login()"  class="user-navbar__logout">Logout</a>`
     
     if(currentUser.role === 'ADMIN_ROLE'){
         adminUserLi.style.display = 'block';
@@ -33,7 +33,7 @@ if(currentUser){
 
 }
 
-function logout(){
+function login(){
     const currentUser = JSON.parse(localStorage.getItem('currentUser')); 
     localStorage.removeItem('currentUser');
     localStorage.removeItem('token')
