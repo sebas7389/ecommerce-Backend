@@ -3,7 +3,9 @@ const salectCategoryHtml = document.getElementById ('category')
 
 let products = [];
 
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com'
+const URL = 'https://eit1-ecommerce-fullstack.onrender.com';
+const URL_public = 'https://eit1-ecommerce-fullstack.onrender.com/api';
+
 
 async function cargarProductos(){
     try {
@@ -18,24 +20,22 @@ async function cargarProductos(){
     }
 }
 
+
 function renderizarProductos(productsL) {
 
     cardContainer.innerHTML = ``;
 
-    if (productsL.length === 0) {
-        cardContainer.innerHTML = `<h1 class="disabled">ERROR, NO SE ENCONTRARON PRODUCTOS</h1>`;
-        return;
-    }
-
     productsL.forEach((producto,index )=> {
 
-     const card = document.createElement('article');
-     card.classList.add('card');   
+    let imageSrc = producto.image ? `${URL_public}/upload/product/${producto.image}` : '/assets/images/funciones-pagina/not-found.webp';
 
+    const card = document.createElement('article')
+
+    card.classList.add('card'); 
     // let index = Products.findIndex((p) => p.name === producto.name);
 
     card.innerHTML = `<div class="card__header">
-                    <img src="/upload/product/${producto.image}" alt ="${producto.name}" class="card__img">
+                    <img src="${imageSrc}" alt ="${producto.name}" class="card__img">
                 </div>
                 <div class="card__body">
                     <div class="card__title">
