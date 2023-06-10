@@ -5,10 +5,6 @@ const paramsEntries = Object.fromEntries(paramsURL);
 
 const products = [];
 
-
-
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
-
 async function renderizarDetail(id) {
 
 try {

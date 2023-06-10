@@ -1,7 +1,7 @@
 //Guardo la orden del local storage en la variable Products
 let Products = JSON.parse(sessionStorage.getItem('order')) || [];
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
 
+// const URL = 'http://localhost:8000';
 
 //Tabla de productos
 const tableBody = document.getElementById('order-table_body');
@@ -70,7 +70,7 @@ renderizarTabla();
 function deleteProduct(id){
     Products.splice(id,1)
     //Guardarlo en el local storage
-    localStorage.setItem('order',JSON.stringify(Products));
+    sessionStorage.setItem('order',JSON.stringify(Products));
     
     renderizarTabla();
     showAlert('Producto Eliminado de la Orden')

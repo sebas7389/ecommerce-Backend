@@ -16,7 +16,7 @@ router.post("/product",uploadController.uploadProduct,productController.addProdu
 // Eliminar un producto
 router.delete("/product/:id", productController.deleteProduct);
 // Modificar
-router.put('/product', productController.updateProduct)
+router.put('/product/:id',uploadController.uploadProduct,productController.updateProduct);
 
 
 

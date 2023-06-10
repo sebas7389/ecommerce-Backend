@@ -1,9 +1,6 @@
 //1-a guardo el formulario en una variable
 const loginForm = document.getElementById("loginForm");
 
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
-
-
 
 //1 - Obtener los datos del formulario
 loginForm.addEventListener("submit", async (event) => {

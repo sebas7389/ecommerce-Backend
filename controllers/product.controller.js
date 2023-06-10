@@ -84,6 +84,7 @@ async function deleteProduct (req, res) {
 async function getProduct(req, res) {
         try {
             const product = await Product.findById(req.params.id);
+
             return res.status(200).send({
                 msg: `Producto encontrado`,
                 ok: true,
@@ -101,10 +102,11 @@ async function updateProduct(req, res) {
     try {
 
 
-    const id = req.query.id;
+    const id = req.params.id;
     const data = req.body
-
-
+        console.log("INGRESAMOS AL UPDATE")
+        console.log(id, "id")
+        console.log(data,"data")
         const newProduct= await Product.findByIdAndUpdate(id,data,{new: true})
         
         if(!newProduct) {

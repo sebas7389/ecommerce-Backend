@@ -12,7 +12,6 @@ async function postUser (req, res) {
 try {
 
     const user = new User(req.body);
-    user.role = "CLIENT_ROLE";
     //Codificamos el password con la libreria bcrypt
     const passwordHash = await bcrypt.hash(user.password, saltRounds)
     user.password = passwordHash;
@@ -37,14 +36,17 @@ const login = async (req, res) => {
 
 
     try {
-
         //Email y contraseña
         const emailLogin = req.body.email;
         const passwordLogin = req.body.password;
+
+        console.log(User)
         //Chequeo que me hayan enviado los datos requeridos para el login
         if(!emailLogin||!passwordLogin) {
             return res.status(400).send ({ msg:`Datos del login incompletos`})
         }
+
+        console.log(emailLogin)
 
         //Buscar si existe un usuario con dicho email
         const user = await User.findOne({email: emailLogin}) 

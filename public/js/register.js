@@ -5,8 +5,6 @@ const registerForm = document.querySelector('#registerForm');
 //obtener boton submit
 const resgisterBtn = document.getElementById('registerSubmit');
 
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
-
 registerForm.addEventListener('submit', async (evt)=>{
     
     try {

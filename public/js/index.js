@@ -3,15 +3,15 @@ const salectCategoryHtml = document.getElementById ('category')
 
 let products = [];
 
-const URL = 'https://eit1-ecommerce-fullstack.onrender.com/api';
-const URL_public = 'https://eit1-ecommerce-fullstack.onrender.com';
-
+// const URL = 'http://localhost:8000/api';
+// const URL_public = 'http://localhost:8000';
 
 async function cargarProductos(){
     try {
         const respuesta = await axios.get(`${URL}/products`)
-        
+        console.log(respuesta)
         products = respuesta.data.productos
+        console.log(products)
 
         renderizarProductos(products)
         
@@ -20,14 +20,13 @@ async function cargarProductos(){
     }
 }
 
-
 function renderizarProductos(productsL) {
 
     cardContainer.innerHTML = ``;
 
     productsL.forEach((producto,index )=> {
 
-    let imageSrc = producto.image ? `${URL_public}/upload/product/${producto.image}` : '/assets/images/funciones-pagina/not-found.webp';
+    let imageSrc = producto.image ? `/upload/product/${producto.image}` : '/assets/images/funciones-pagina/not-found.webp';
 
     const card = document.createElement('article')
 
